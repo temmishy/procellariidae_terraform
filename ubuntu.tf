@@ -33,7 +33,7 @@ resource "yandex_compute_instance" "vm-1" {
     nat       = true
   }
   metadata = {
-    user-data = "${file("/home/temmishy/terraform/metadata.yaml")}"
+    user-data = "${file("/path/to/metadata.yaml")}"
   }
   scheduling_policy {
     preemptible = true
