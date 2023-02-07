@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: temmishy
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC2hBUGIa99fnykvslcnCc6n67jesL8/iBfsB9aEhmoQMnbxr1ifUEr4ERwHOCYHZ9KfLfFgbUw66baxSQ1Hn8EwmGviNo/cJqRtgkHdBWpM2qjd7gJ2KftwDgvUgoCQKAWAotErAMu2JH2l/flrWR86L6CDNvmtn7oV0Wqd/WNRmj8bnDIJ6xIot0kcqmA7lgGK66tIFzBH6btD8TgF+T6J18/qA/C19prA2zZEnQpxbfFUXYF8lv3K2DOMZsguSnAkKQqqrgbkJxIOcqKc0SGeZOaD0biyHhoRw0HElnTIbBlQWkrB7bYdjFAT7FCbHox8vmafv3aFHSYCABwJXv41SK+YQL7Ra4uHu542NXG96Srvxb1HDmB+Ol5vIaEpFmbSaAdjcISdMkbdWKIzKtw5O43UlobBK6geSFDDGfvuZIMQF+iZn2c3cigLqORqufODcC/Kuyh6nrkTBdIKjJXVqR8mWOe864MN52szDhYtIDwMQyYnQB0iSsOXliX2eM= temmishy@DESKTOP-EO5RSRP
