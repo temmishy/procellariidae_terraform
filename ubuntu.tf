@@ -31,6 +31,7 @@ resource "yandex_compute_instance" "vm-1" {
   network_interface {
     subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
     nat       = true
+    ip_address= "172.17.17.17"
   }
   metadata = {
     user-data = "${file("/home/temmishy/gitlab/procellariidae_terraform/metadata.yaml")}"
@@ -82,6 +83,20 @@ resource "yandex_vpc_security_group" "test-sg" {
     port           = 22
   }
 
+  ingress {
+    protocol       = "TCP"
+    description    = "Incomig"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 1514
+  }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "Incomig"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 1515
+  }
+
   egress {
     protocol       = "ANY"
     description    = "Outgoing"
@@ -89,4 +104,34 @@ resource "yandex_vpc_security_group" "test-sg" {
     from_port      = 0
     to_port        = 0
   }
+}
+
+
+
+#Create VM
+
+resource "yandex_compute_instance" "vm-2" {
+  name = "terraform-webserver-2"
+
+  resources {
+    cores         = 2
+    memory        = 2
+    core_fraction = 20
+  }
+  boot_disk {
+    initialize_params {
+      image_id = "fd8rmrbvcdlg1olcn4a1"
+    }
+  }
+  network_interface {
+    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    nat       = true
+  }
+  metadata = {
+    user-data = "${file("/home/temmishy/gitlab/procellariidae_terraform/metadata.yaml")}"
+  }
+  scheduling_policy {
+    preemptible = true
+  }
+  
 }
