@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd81u2vhv3mc49l1ccbb"
+      image_id = "fd8gqe5b318bc9j94cig"
     }
   }
   network_interface {
@@ -33,7 +33,7 @@ resource "yandex_compute_instance" "vm-1" {
     nat       = true
   }
   metadata = {
-    user-data = "${file("/path/to/metadata.yaml")}"
+    user-data = "${file("/home/temmishy/gitlab/procellariidae_terraform/metadata.yaml")}"
   }
   scheduling_policy {
     preemptible = true

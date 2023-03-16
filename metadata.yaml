@@ -2,6 +2,9 @@
 users:
   - name: temmishy
     groups: sudo
+    #passwd: 1337
+    passwd: $6$rounds=4096$Tfk4YloKfPWbovT1$lg7a2tNIoob7wIDW4wID7Ha02EnNTP/CYWCtjUCQ060oqT1PvthnIDSPOutsHwn4h.O9QaMFhlvxsyRA2mLFr0
+    lock_passwd: false
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys:
