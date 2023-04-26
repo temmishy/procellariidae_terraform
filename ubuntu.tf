@@ -34,7 +34,7 @@ resource "yandex_compute_instance" "vm-1" {
     ip_address= "172.17.17.17"
   }
   metadata = {
-    user-data = "${file("/home/temmishy/gitlab/procellariidae_terraform/metadata.yaml")}"
+    user-data = "${file("./metadata.yaml")}"
   }
   scheduling_policy {
     preemptible = true
