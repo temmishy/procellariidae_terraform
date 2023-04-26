@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8gqe5b318bc9j94cig"
+      image_id = "fd8vd5dqa99q7go5oao2"
     }
   }
   network_interface {
@@ -53,6 +53,13 @@ resource "yandex_vpc_subnet" "subnet-1" {
   zone           = "ru-central1-a"
   network_id     = "${yandex_vpc_network.network-1.id}"
   v4_cidr_blocks = ["172.17.17.0/24"]
+}
+
+resource "yandex_vpc_subnet" "subnet-2" {
+  name           = "subnet-2"
+  zone           = "ru-central1-a"
+  network_id     = "${yandex_vpc_network.network-1.id}"
+  v4_cidr_blocks = ["192.168.10.0/24"]
 }
 
 #Security group
@@ -120,12 +127,37 @@ resource "yandex_compute_instance" "vm-2" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8rmrbvcdlg1olcn4a1"
+      image_id = "fd8vd5dqa99q7go5oao2"
     }
   }
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
-    nat       = true
+    subnet_id = "${yandex_vpc_subnet.subnet-2.id}"
+  }
+  metadata = {
+    user-data = "${file("/home/temmishy/gitlab/procellariidae_terraform/metadata.yaml")}"
+  }
+  scheduling_policy {
+    preemptible = true
+  }  
+}
+
+#Create VM
+
+resource "yandex_compute_instance" "vm-3" {
+  name = "terraform-webserver-3"
+
+  resources {
+    cores         = 2
+    memory        = 2
+    core_fraction = 20
+  }
+  boot_disk {
+    initialize_params {
+      image_id = "fd8vd5dqa99q7go5oao2"
+    }
+  }
+  network_interface {
+    subnet_id = "${yandex_vpc_subnet.subnet-2.id}"
   }
   metadata = {
     user-data = "${file("/home/temmishy/gitlab/procellariidae_terraform/metadata.yaml")}"
@@ -133,5 +165,4 @@ resource "yandex_compute_instance" "vm-2" {
   scheduling_policy {
     preemptible = true
   }
-  
 }
