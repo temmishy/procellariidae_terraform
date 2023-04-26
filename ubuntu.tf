@@ -134,7 +134,7 @@ resource "yandex_compute_instance" "vm-2" {
     subnet_id = "${yandex_vpc_subnet.subnet-2.id}"
   }
   metadata = {
-    user-data = "${file("/home/temmishy/gitlab/procellariidae_terraform/metadata.yaml")}"
+    user-data = "${file("./metadata.yaml")}"
   }
   scheduling_policy {
     preemptible = true
@@ -160,7 +160,7 @@ resource "yandex_compute_instance" "vm-3" {
     subnet_id = "${yandex_vpc_subnet.subnet-2.id}"
   }
   metadata = {
-    user-data = "${file("/home/temmishy/gitlab/procellariidae_terraform/metadata.yaml")}"
+    user-data = "${file("./metadata.yaml")}"
   }
   scheduling_policy {
     preemptible = true
