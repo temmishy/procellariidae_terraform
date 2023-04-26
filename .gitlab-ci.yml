@@ -11,6 +11,7 @@ validate_ubuntu:
     - export YC_CLOUD_ID=$YC_CLOUD_ID
     - export YC_FOLDER_ID=$YC_FOLDER_ID
     - terraform init
+    - terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=linux_amd64 -platform=darwin_arm64 yandex-cloud/yandex
     - terraform validate
   tags:
     - shell
