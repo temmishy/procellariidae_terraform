@@ -114,7 +114,7 @@ resource "yandex_compute_instance" "wazuh-server" {
   boot_disk {
     initialize_params {
       image_id = "fd8qbrff0gp636jv1jmo"
-      size = 100
+      size = 50
     }
   }
   network_interface {
@@ -145,7 +145,7 @@ resource "yandex_compute_instance" "ubuntu-router" {
   boot_disk {
     initialize_params {
       image_id = "fd8u2j5rhr7l99od1erp"
-      size = 50
+      size = 20
     }
   }
   network_interface {
@@ -182,7 +182,7 @@ resource "yandex_compute_instance" "webserver-1" {
   boot_disk {
     initialize_params {
       image_id = "fd8u2j5rhr7l99od1erp"
-      size = 50
+      size = 20
     }
   }
   network_interface {
@@ -209,7 +209,7 @@ resource "yandex_compute_instance" "webserver-2" {
   boot_disk {
     initialize_params {
       image_id = "fd8u2j5rhr7l99od1erp"
-      size = 50
+      size = 20
     }
   }
   network_interface {
@@ -236,7 +236,7 @@ resource "yandex_compute_instance" "user-1" {
   boot_disk {
     initialize_params {
       image_id = "fd8u2j5rhr7l99od1erp"
-      size = 50
+      size = 20
     }
   }
   network_interface {
@@ -261,7 +261,7 @@ resource "yandex_compute_instance" "user-2" {
   boot_disk {
     initialize_params {
       image_id = "fd8u2j5rhr7l99od1erp"
-      size = 50
+      size = 20
     }
   }
   network_interface {
@@ -286,7 +286,7 @@ resource "yandex_compute_instance" "user-3" {
   boot_disk {
     initialize_params {
       image_id = "fd8u2j5rhr7l99od1erp"
-      size = 50
+      size = 20
     }
   }
   network_interface {
@@ -311,7 +311,7 @@ resource "yandex_compute_instance" "user-4" {
   boot_disk {
     initialize_params {
       image_id = "fd8u2j5rhr7l99od1erp"
-      size = 50
+      size = 20
     }
   }
   network_interface {
@@ -336,7 +336,7 @@ resource "yandex_compute_instance" "user-4" {
   boot_disk {
     initialize_params {
       image_id = "fd8u2j5rhr7l99od1erp"
-      size = 50
+      size = 20
     }
   }
   network_interface {
@@ -361,7 +361,7 @@ resource "yandex_compute_instance" "user-4" {
   boot_disk {
     initialize_params {
       image_id = "fd8earpjmhevh8h6ug5o"
-      size = 50
+      size = 20
     }
   }
   network_interface {
